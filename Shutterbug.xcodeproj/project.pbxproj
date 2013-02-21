@@ -17,7 +17,8 @@
 		0AD300B116D683EA0006535E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD300B016D683EA0006535E /* Default@2x.png */; };
 		0AD300B316D683EA0006535E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD300B216D683EA0006535E /* Default-568h@2x.png */; };
 		0AD300B616D683EA0006535E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD300B416D683EA0006535E /* MainStoryboard.storyboard */; };
-		0AD300B916D683EA0006535E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD300B816D683EA0006535E /* ViewController.m */; };
+		0AD300C116D6841B0006535E /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD300C016D6841B0006535E /* ImageViewController.m */; };
+		0AD300C416D686B30006535E /* MyImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD300C316D686B30006535E /* MyImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +36,10 @@
 		0AD300B016D683EA0006535E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0AD300B216D683EA0006535E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0AD300B516D683EA0006535E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		0AD300B716D683EA0006535E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0AD300B816D683EA0006535E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0AD300BF16D6841B0006535E /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = ../ImageViewController.h; sourceTree = "<group>"; };
+		0AD300C016D6841B0006535E /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = ../ImageViewController.m; sourceTree = "<group>"; };
+		0AD300C216D686B30006535E /* MyImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyImageViewController.h; path = ../MyImageViewController.h; sourceTree = "<group>"; };
+		0AD300C316D686B30006535E /* MyImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyImageViewController.m; path = ../MyImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +86,13 @@
 		0AD300A216D683EA0006535E /* Shutterbug */ = {
 			isa = PBXGroup;
 			children = (
+				0AD300C216D686B30006535E /* MyImageViewController.h */,
+				0AD300C316D686B30006535E /* MyImageViewController.m */,
+				0AD300BF16D6841B0006535E /* ImageViewController.h */,
+				0AD300C016D6841B0006535E /* ImageViewController.m */,
 				0AD300AB16D683EA0006535E /* AppDelegate.h */,
 				0AD300AC16D683EA0006535E /* AppDelegate.m */,
 				0AD300B416D683EA0006535E /* MainStoryboard.storyboard */,
-				0AD300B716D683EA0006535E /* ViewController.h */,
-				0AD300B816D683EA0006535E /* ViewController.m */,
 				0AD300A316D683EA0006535E /* Supporting Files */,
 			);
 			path = Shutterbug;
@@ -175,7 +180,8 @@
 			files = (
 				0AD300A916D683EA0006535E /* main.m in Sources */,
 				0AD300AD16D683EA0006535E /* AppDelegate.m in Sources */,
-				0AD300B916D683EA0006535E /* ViewController.m in Sources */,
+				0AD300C116D6841B0006535E /* ImageViewController.m in Sources */,
+				0AD300C416D686B30006535E /* MyImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
