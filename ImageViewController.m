@@ -8,7 +8,7 @@
 
 #import "ImageViewController.h"
 
-@interface ImageViewController ()
+@interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIImageView *imageView;
@@ -39,6 +39,9 @@
         UIImage *image = [[UIImage alloc] initWithData:imageData];
         if (image)
         {
+            // reset the zoom scale every time we get a new image:
+            self.scrollView.zoomScale = 1.0;
+            
             self.scrollView.contentSize = image.size;
             self.imageView.image = image;
             self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
@@ -60,9 +63,25 @@
 {
     [super viewDidLoad];
 	[self.scrollView addSubview:self.imageView];
+    
+    //zooming:
+    self.scrollView.minimumZoomScale = 0.2;
+    self.scrollView.maximumZoomScale = 5.0;
+    
+    self.scrollView.delegate = self;
+    
     [self resetImage];
+    
+    
+    
+    
+    
 }
 
+-(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
 
 
 @end
