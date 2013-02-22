@@ -17,13 +17,20 @@
 
 -(void) setPhotos:(NSArray *)photos
 {
+    
+    NSLog(@"Number %d", [photos count]);
+
+    
     _photos = photos;
     [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.photos count];
+    
+    NSInteger numberOfPhotos = [self.photos count];
+    NSLog(@"Number %d", numberOfPhotos);
+    return numberOfPhotos;
 }
 
 -(NSString *) titleForRow:(NSUInteger) row

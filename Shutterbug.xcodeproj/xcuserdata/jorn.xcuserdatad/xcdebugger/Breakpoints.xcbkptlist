@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/FlickrPhotoTVC.m"
-         timestampString = "383200069.798549"
+         timestampString = "383203369.149967"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
          landmarkName = "-setPhotos:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/FlickrPhotoTVC.m"
-         timestampString = "383200384.1744"
+         timestampString = "383203369.149967"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/FlickrPhotoTVC.m"
-         timestampString = "383200384.1744"
+         timestampString = "383203369.149967"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
+         startingLineNumber = "31"
+         endingLineNumber = "31"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/FlickrPhotoTVC.m"
-         timestampString = "383200370.833546"
+         timestampString = "383203369.149967"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-titleForRow:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/FlickrPhotoTVC.m"
-         timestampString = "383200371.8257"
+         timestampString = "383203369.149967"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-subtitleForRow:"
          landmarkType = "5">
       </FileBreakpoint>
