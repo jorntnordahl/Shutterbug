@@ -15,9 +15,6 @@
 {
     [super viewDidLoad];
     NSArray *latestPhotos = [FlickrFetcher latestGeoreferencedPhotos];
-    
-    NSLog(@"Loaded Photos %@", latestPhotos);
-    
     self.photos = latestPhotos;
 }
 @end
