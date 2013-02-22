@@ -15,11 +15,32 @@
 
 @implementation FlickrPhotoTVC
 
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([sender isKindOfClass:[UITableViewCell class]])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath)
+        {
+            if ([segue.identifier isEqualToString:@"Show Image"])
+            {
+                if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)])
+                {
+                    NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
+                    
+                    [segue.destinationViewController performSelector:@selector(setImageURL:) withObject: url];
+                    [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
+                }
+            }
+        }
+    }
+}
+
 -(void) setPhotos:(NSArray *)photos
 {
     
     NSLog(@"Number %d", [photos count]);
-
     
     _photos = photos;
     [self.tableView reloadData];
