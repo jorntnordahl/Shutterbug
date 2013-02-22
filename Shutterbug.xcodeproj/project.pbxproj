@@ -83,6 +83,15 @@
 			path = ../FlickrFetcher;
 			sourceTree = "<group>";
 		};
+		0A92B74516D7CDAF00D5E914 /* NotUsed */ = {
+			isa = PBXGroup;
+			children = (
+				0AD300C216D686B30006535E /* MyImageViewController.h */,
+				0AD300C316D686B30006535E /* MyImageViewController.m */,
+			);
+			name = NotUsed;
+			sourceTree = "<group>";
+		};
 		0AD3009016D683EA0006535E = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				0A27895C16D71ACD00C83191 /* FlickrFetcher */,
-				0AD300C216D686B30006535E /* MyImageViewController.h */,
-				0AD300C316D686B30006535E /* MyImageViewController.m */,
 				0AD300BF16D6841B0006535E /* ImageViewController.h */,
 				0AD300C016D6841B0006535E /* ImageViewController.m */,
 				0AD300AB16D683EA0006535E /* AppDelegate.h */,
@@ -130,6 +137,7 @@
 				0A92B73F16D7C56600D5E914 /* StanfordImageFlickrTVC.h */,
 				0A92B74016D7C56600D5E914 /* StanfordImageFlickrTVC.m */,
 				0AD300A316D683EA0006535E /* Supporting Files */,
+				0A92B74516D7CDAF00D5E914 /* NotUsed */,
 			);
 			path = Shutterbug;
 			sourceTree = "<group>";

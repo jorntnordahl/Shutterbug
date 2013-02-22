@@ -10,4 +10,6 @@
 
 @interface StanfordTagFlickrTVC : FlickrPhotoTVC
 
+@property (nonatomic, strong) NSDictionary *tags; // of String - Tag, to Array of Photo IDs representing the Photo using that tag.
+
 @end
