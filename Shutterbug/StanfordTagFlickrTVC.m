@@ -8,6 +8,9 @@
 
 #import "StanfordTagFlickrTVC.h"
 #import "FlickrFetcher.h"
+#import "TagInfo.h"
+#import "PhotoInfo.h"
+
 
 @interface StanfordTagFlickrTVC ()
 
@@ -22,7 +25,7 @@
     _tags = tags;
 }*/
 
--(NSDictionary *)tags
+-(NSArray *)tags
 {
     if (!_tags)
     {
@@ -31,21 +34,21 @@
     return _tags;
 }
 
--(void) viewWillAppear:(BOOL)animated
+/*-(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     NSLog(@"View will appear");
     //self.tags = [self processPhotosTags];
-}
+}*/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"View did load");
+    //NSLog(@"View did load");
     self.photos = [FlickrFetcher stanfordPhotos];
 }
 
--(NSDictionary *) processPhotosTags
+-(NSArray *) processPhotosTags
 {
     NSMutableDictionary *photoTags = [[NSMutableDictionary alloc]init];
     
@@ -57,48 +60,50 @@
             NSString *photoID = [photoInfo valueForKey:FLICKR_PHOTO_ID];
             NSString *tags = [photoInfo valueForKey:FLICKR_TAGS];
             NSArray *tagList = [tags componentsSeparatedByString:@" "];
-            //NSLog(@"Photo: %@", photoID);
             
             for (NSString *tag in tagList)
             {
-                //NSLog(@"Tag %@", tag);
-            
                 if ([photoTags objectForKey:tag] == nil)
                 {
-                    // new tag in list, create a new array for the photo id, and add the tag and photo id array to dictionary
-                    NSMutableArray *photoIDList = [[NSMutableArray alloc] init];
-                    [photoIDList addObject:photoID];
+                    TagInfo *tagInfo = [[TagInfo alloc] init];
+                    tagInfo.tag = tag;
+                    [tagInfo.photoIDs addObject:photoID];
                     
                     // now add the list to dictionary:
-                    [photoTags setValue:photoIDList forKey:tag];
+                    [photoTags setValue:tagInfo forKey:tag];
                 }
                 else
                 {
                     // this tag is already in the list, so just get the array out, and add this photo id to that tag
-                    NSMutableArray *photoIDList = [photoTags valueForKey:tag];
-                    [photoIDList addObject:photoID];
+                    TagInfo *tagInfo = [photoTags valueForKey:tag];
+                    [tagInfo.photoIDs addObject:photoID];
                 }
             }
         }
     }
+
+    return [self transformToArray:photoTags];
+}
+
+-(NSArray *) transformToArray:(NSDictionary *)sender
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
     
-    NSLog(@"Resulting Dictionary %@", photoTags);
+    if (sender)
+    {
+        [sender enumerateKeysAndObjectsUsingBlock:^(NSString *key, TagInfo *obj, BOOL *stop) {
+            NSLog(@"Transforming: %@", key);
+            NSLog(@"IDs: %@", obj.photoIDs);
+            [result addObject:obj];
+        }];
+    }
     
-    // here, loop over the photos, extracting each tag from the list.
-    // the tag will be the key in the photo tags dictionary and the id of the photo will go into the
-    // array in the dictionary value field. Each photo's id can have multiple tags so the photo id will show up in the array more than one
-    // time...
-    
-    return photoTags;
+    return result;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [self.tags count];
-    
-    NSInteger numberofTags = [self.tags count];
-    NSLog(@"Number of Tags %d", numberofTags);
-    return numberofTags;
+    return [self.tags count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,17 +120,26 @@
 
 -(NSString *) titleForRow:(NSUInteger) row
 {
-    
-    [self.tags value]
-    
-    return @"1";
-    //return [self.tags[row][FLICKR_PHOTO_TITLE] description];
+    TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
+    if (tagInfo)
+    {
+        // TODO: Need to uppercase the first character
+        return tagInfo.tag;
+    }
+    return @"?";
 }
 
 -(NSString *) subtitleForRow:(NSUInteger) row
 {
-    return @"2";
-    //return [self.tags[row][FLICKR_PHOTO_OWNER] description];
+    TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
+    if (tagInfo)
+    {
+        // TODO: Need to uppercase the first character
+        NSArray *photoIDs = tagInfo.photoIDs;
+        NSLog(@"IDs: %@", photoIDs);
+        return [NSString stringWithFormat:@"%d", [tagInfo.photoIDs count]];
+    }
+    return @"?";
 }
 
 

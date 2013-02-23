@@ -10,6 +10,8 @@
 		0A27895B16D7182C00C83191 /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A27895A16D7182C00C83191 /* FlickrPhotoTVC.m */; };
 		0A27896016D71ACD00C83191 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A27895F16D71ACD00C83191 /* FlickrFetcher.m */; };
 		0A27896616D727FF00C83191 /* LatestFlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A27896516D727FF00C83191 /* LatestFlickrPhotoTVC.m */; };
+		0A32616A16D86B9300D0C7A2 /* PhotoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32616916D86B9300D0C7A2 /* PhotoInfo.m */; };
+		0A32616D16D86F7C00D0C7A2 /* TagInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32616C16D86F7C00D0C7A2 /* TagInfo.m */; };
 		0A92B74116D7C56600D5E914 /* StanfordImageFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B74016D7C56600D5E914 /* StanfordImageFlickrTVC.m */; };
 		0A92B74416D7CBA700D5E914 /* StanfordTagFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B74316D7CBA700D5E914 /* StanfordTagFlickrTVC.m */; };
 		0AD3009D16D683EA0006535E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD3009C16D683EA0006535E /* UIKit.framework */; };
@@ -34,6 +36,10 @@
 		0A27895F16D71ACD00C83191 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		0A27896416D727FF00C83191 /* LatestFlickrPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestFlickrPhotoTVC.h; sourceTree = "<group>"; };
 		0A27896516D727FF00C83191 /* LatestFlickrPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestFlickrPhotoTVC.m; sourceTree = "<group>"; };
+		0A32616816D86B9300D0C7A2 /* PhotoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoInfo.h; sourceTree = "<group>"; };
+		0A32616916D86B9300D0C7A2 /* PhotoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoInfo.m; sourceTree = "<group>"; };
+		0A32616B16D86F7C00D0C7A2 /* TagInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagInfo.h; sourceTree = "<group>"; };
+		0A32616C16D86F7C00D0C7A2 /* TagInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagInfo.m; sourceTree = "<group>"; };
 		0A92B73F16D7C56600D5E914 /* StanfordImageFlickrTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordImageFlickrTVC.h; sourceTree = "<group>"; };
 		0A92B74016D7C56600D5E914 /* StanfordImageFlickrTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordImageFlickrTVC.m; sourceTree = "<group>"; };
 		0A92B74216D7CBA700D5E914 /* StanfordTagFlickrTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordTagFlickrTVC.h; sourceTree = "<group>"; };
@@ -83,6 +89,17 @@
 			path = ../FlickrFetcher;
 			sourceTree = "<group>";
 		};
+		0A32616716D86A8E00D0C7A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A32616816D86B9300D0C7A2 /* PhotoInfo.h */,
+				0A32616916D86B9300D0C7A2 /* PhotoInfo.m */,
+				0A32616B16D86F7C00D0C7A2 /* TagInfo.h */,
+				0A32616C16D86F7C00D0C7A2 /* TagInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		0A92B74516D7CDAF00D5E914 /* NotUsed */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +139,7 @@
 		0AD300A216D683EA0006535E /* Shutterbug */ = {
 			isa = PBXGroup;
 			children = (
+				0A32616716D86A8E00D0C7A2 /* Model */,
 				0A27895C16D71ACD00C83191 /* FlickrFetcher */,
 				0AD300BF16D6841B0006535E /* ImageViewController.h */,
 				0AD300C016D6841B0006535E /* ImageViewController.m */,
@@ -231,6 +249,8 @@
 				0A27896616D727FF00C83191 /* LatestFlickrPhotoTVC.m in Sources */,
 				0A92B74116D7C56600D5E914 /* StanfordImageFlickrTVC.m in Sources */,
 				0A92B74416D7CBA700D5E914 /* StanfordTagFlickrTVC.m in Sources */,
+				0A32616A16D86B9300D0C7A2 /* PhotoInfo.m in Sources */,
+				0A32616D16D86F7C00D0C7A2 /* TagInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
