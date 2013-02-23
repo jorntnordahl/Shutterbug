@@ -181,7 +181,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="1Bd-aB-RmX" kind="push" id="uJZ-Vw-wDQ"/>
+                                    <segue destination="1Bd-aB-RmX" kind="push" identifier="Show Images for Tag" id="uJZ-Vw-wDQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

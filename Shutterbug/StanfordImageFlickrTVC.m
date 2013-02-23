@@ -15,11 +15,15 @@
 
 @implementation StanfordImageFlickrTVC
 
+-(void) setPhotos: (NSArray *) photos
+{
+    self.photos = photos;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.photos = [FlickrFetcher stanfordPhotos];
+	//self.photos = [FlickrFetcher stanfordPhotos];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

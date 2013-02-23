@@ -18,13 +18,6 @@
 
 @implementation StanfordTagFlickrTVC
 
-
-/*-(void) setTags:(NSDictionary *)tags
-{
-    NSLog(@"Tags %@", tags);
-    _tags = tags;
-}*/
-
 -(NSArray *)tags
 {
     if (!_tags)
@@ -34,18 +27,62 @@
     return _tags;
 }
 
-/*-(void) viewWillAppear:(BOOL)animated
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super viewWillAppear:animated];
-    NSLog(@"View will appear");
-    //self.tags = [self processPhotosTags];
-}*/
+    if ([sender isKindOfClass:[UITableViewCell class]])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath)
+        {
+            if ([segue.identifier isEqualToString:@"Show Images for Tag"])
+            {
+                if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)])
+                {
+                    /*NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
+                    */
+                    
+                    TagInfo *tagInfo = self.tags[indexPath.row];
+                
+                    NSArray *photoList = [self fetchPhotosForTag:tagInfo];
+                    
+                    [segue.destinationViewController performSelector:@selector(setPhotos:) withObject:photoList];
+                    [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
+                }
+            }
+        }
+    }
+}
+
+-(NSArray *) fetchPhotosForTag: (TagInfo *) tagInfo
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    
+    // loop on all the photos and return all the photos that exist in the list:
+    //NSArray *photoIDs = tagInfo.photoIDs;
+    NSString *tag = tagInfo.tag;
+    for (NSDictionary *photoInfo in self.allPhotos)
+    {
+        NSString *tags = [photoInfo valueForKey:FLICKR_TAGS];
+        
+        if ([tags rangeOfString:tag].location == NSNotFound) {
+            // not found
+        } else {
+            [result addObject:photoInfo];
+        }
+    }
+    
+    return result;
+}
+
+-(void) setAllPhotos:(NSArray *)photos
+{
+    _allPhotos = photos;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSLog(@"View did load");
-    self.photos = [FlickrFetcher stanfordPhotos];
+    self.allPhotos = [FlickrFetcher stanfordPhotos];
 }
 
 -(NSArray *) processPhotosTags
@@ -53,9 +90,9 @@
     NSMutableDictionary *photoTags = [[NSMutableDictionary alloc]init];
     
     // if we have photos to use:
-    if (self.photos)
+    if (self.allPhotos)
     {
-        for (NSDictionary *photoInfo in self.photos)
+        for (NSDictionary *photoInfo in self.allPhotos)
         {
             NSString *photoID = [photoInfo valueForKey:FLICKR_PHOTO_ID];
             NSString *tags = [photoInfo valueForKey:FLICKR_TAGS];
@@ -88,16 +125,12 @@
 -(NSArray *) transformToArray:(NSDictionary *)sender
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
-    
     if (sender)
     {
         [sender enumerateKeysAndObjectsUsingBlock:^(NSString *key, TagInfo *obj, BOOL *stop) {
-            NSLog(@"Transforming: %@", key);
-            NSLog(@"IDs: %@", obj.photoIDs);
             [result addObject:obj];
         }];
     }
-    
     return result;
 }
 
@@ -123,8 +156,7 @@
     TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
     if (tagInfo)
     {
-        // TODO: Need to uppercase the first character
-        return tagInfo.tag;
+        return [tagInfo.tag capitalizedString];
     }
     return @"?";
 }
