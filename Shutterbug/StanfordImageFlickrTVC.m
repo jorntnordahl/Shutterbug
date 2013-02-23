@@ -15,10 +15,10 @@
 
 @implementation StanfordImageFlickrTVC
 
--(void) setPhotos: (NSArray *) photos
+/*-(void) setPhotos: (NSArray *) photos
 {
     self.photos = photos;
-}
+}*/
 
 - (void)viewDidLoad
 {
