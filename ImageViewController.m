@@ -33,7 +33,7 @@
         self.imageView.image = nil;
         
         // go out to the web and get the image:
-        
+        NSLog(@"URL: %@", self.imageURL);
         NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
         
         UIImage *image = [[UIImage alloc] initWithData:imageData];

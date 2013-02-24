@@ -1,20 +1,20 @@
 //
-//  FlickrPhotoTVCViewController.m
+//  RecentImageFlickrTVC.m
 //  Shutterbug
 //
-//  Created by Jorn Nordahl on 2/21/13.
+//  Created by Jorn Nordahl on 2/23/13.
 //  Copyright (c) 2013 Jorn Nordahl. All rights reserved.
 //
 
-#import "FlickrPhotoTVC.h"
+#import "RecentImageFlickrTVC.h"
 #import "FlickrFetcher.h"
 #import "RecentInfo.h"
 
-@interface FlickrPhotoTVC ()
+@interface RecentImageFlickrTVC ()
 
 @end
 
-@implementation FlickrPhotoTVC
+@implementation RecentImageFlickrTVC
 
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -24,52 +24,52 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath)
         {
-            if ([segue.identifier isEqualToString:@"Show Image"])
+            if ([segue.identifier isEqualToString:@"Show Recent Image"])
             {
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)])
                 {
-                    NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
-                    
+                    NSString *urlAsString = self.recentPhotos[indexPath.row][@"url"];
+                    NSURL *url = [NSURL URLWithString:urlAsString];
+                      
                     [segue.destinationViewController performSelector:@selector(setImageURL:) withObject: url];
                     [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
-                    
-                    NSDictionary *photoDictionary = self.photos[indexPath.row];
-                    [[RecentInfo class]addToRecent:photoDictionary];
                 }
             }
         }
     }
 }
 
--(void) setPhotos:(NSArray *)photos
+- (void)viewDidLoad
 {
-    _photos = photos;
+    [super viewDidLoad];
+	self.recentPhotos = [[RecentInfo class] getRecentPhotos];
+}
+
+-(void) setRecentPhotos:(NSArray *)recentPhotos
+{
+    _recentPhotos = recentPhotos;
     [self.tableView reloadData];
 }
 
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger numberOfPhotos = [self.photos count];
+    NSInteger numberOfPhotos = [self.recentPhotos count];
     return numberOfPhotos;
 }
 
 -(NSString *) titleForRow:(NSUInteger) row
 {
-    return [self.photos[row][FLICKR_PHOTO_TITLE] description];
+    return [self.recentPhotos[row][FLICKR_PHOTO_TITLE] description];
 }
 
 -(NSString *) subtitleForRow:(NSUInteger) row
 {
-    return [self.photos[row][FLICKR_PHOTO_OWNER] description];
+    return [self.recentPhotos[row][FLICKR_PHOTO_OWNER] description];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // abstract ....
-    
-    static NSString *CellIdentifier = @"FlickrPhoto";
+    static NSString *CellIdentifier = @"RecentPhoto";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
@@ -77,21 +77,6 @@
     cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
     
     return cell;
-}
-
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end
