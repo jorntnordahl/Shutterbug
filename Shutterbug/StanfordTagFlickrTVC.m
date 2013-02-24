@@ -81,6 +81,9 @@
     self.allPhotos = [FlickrFetcher stanfordPhotos];
 }
 
+
+
+
 -(NSArray *) processPhotosTags
 {
     NSMutableDictionary *photoTags = [[NSMutableDictionary alloc]init];
@@ -127,7 +130,15 @@
             [result addObject:obj];
         }];
     }
-    return result;
+    
+    NSArray *sortedArray;
+    sortedArray = [result sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSString *first = [(TagInfo*)a tag];
+        NSString *second = [(TagInfo*)b tag];
+        return [first compare:second];
+    }];
+    
+    return sortedArray;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -162,7 +173,7 @@
     TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
     if (tagInfo)
     {
-        return [NSString stringWithFormat:@"%d", [tagInfo.photoIDs count]];
+        return [NSString stringWithFormat:@"%d photos", [tagInfo.photoIDs count]];
     }
     return @"?";
 }

@@ -43,7 +43,14 @@
 
 -(void) setPhotos:(NSArray *)photos
 {
-    _photos = photos;
+    NSArray *sortedArray;
+    sortedArray = [photos sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSString *first = ((NSDictionary *)a)[FLICKR_PHOTO_TITLE];
+        NSString *second = ((NSDictionary *)b)[FLICKR_PHOTO_TITLE];
+        return [first compare:second];
+    }];
+    
+    _photos = sortedArray;
     [self.tableView reloadData];
 }
 
