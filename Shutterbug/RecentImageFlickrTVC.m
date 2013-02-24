@@ -39,9 +39,15 @@
     }
 }
 
-- (void)viewDidLoad
+/*- (void)viewDidLoad
 {
     [super viewDidLoad];
+	//self.recentPhotos = [[RecentInfo class] getRecentPhotos];
+}*/
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 	self.recentPhotos = [[RecentInfo class] getRecentPhotos];
 }
 

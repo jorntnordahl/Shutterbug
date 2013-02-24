@@ -71,11 +71,6 @@
     self.scrollView.delegate = self;
     
     [self resetImage];
-    
-    
-    
-    
-    
 }
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
