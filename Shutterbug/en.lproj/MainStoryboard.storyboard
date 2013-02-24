@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="1067" y="146"/>
         </scene>
-        <!--Recent Image FlickrTVC-->
+        <!--Recent Image FlickrTVC - Recent Photos-->
         <scene sceneID="6RD-II-PCZ">
             <objects>
                 <tableViewController id="7W1-7O-FwF" customClass="RecentImageFlickrTVC" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
                             <outlet property="delegate" destination="7W1-7O-FwF" id="S3O-fG-qx0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Zfj-4m-KpS"/>
+                    <navigationItem key="navigationItem" title="Recent Photos" id="Zfj-4m-KpS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql2-JZ-2Px" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,11 +121,11 @@
             </objects>
             <point key="canvasLocation" x="1620" y="403"/>
         </scene>
-        <!--Navigation Controller - Featured-->
+        <!--Navigation Controller-->
         <scene sceneID="Cih-yX-oWN">
             <objects>
                 <navigationController id="CsF-CR-WKq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Featured" id="lxS-kN-V4a"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="lxS-kN-V4a"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5hj-e1-Nsj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -140,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="258" y="146"/>
         </scene>
-        <!--Stanford Tag FlickrTVC-->
+        <!--Stanford Tag FlickrTVC - Stanford Photos-->
         <scene sceneID="2Td-fL-Tiw">
             <objects>
                 <tableViewController id="BXe-wi-r3X" customClass="StanfordTagFlickrTVC" sceneMemberID="viewController">
@@ -179,17 +179,17 @@
                             <outlet property="delegate" destination="BXe-wi-r3X" id="oiH-O7-xCI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gQT-sc-rBM"/>
+                    <navigationItem key="navigationItem" title="Stanford Photos" id="gQT-sc-rBM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yks-pE-Lt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="659" y="146"/>
         </scene>
-        <!--Navigation Controller - Recent-->
+        <!--Navigation Controller-->
         <scene sceneID="HiQ-YD-X06">
             <objects>
                 <navigationController id="EYT-cC-PRt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" id="IfE-78-Mns"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="IfE-78-Mns"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5L9-3i-VlE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

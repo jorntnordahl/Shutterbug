@@ -162,7 +162,6 @@
     TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
     if (tagInfo)
     {
-        NSArray *photoIDs = tagInfo.photoIDs;
         return [NSString stringWithFormat:@"%d", [tagInfo.photoIDs count]];
     }
     return @"?";
