@@ -21,7 +21,7 @@
                                  FLICKR_PHOTO_ID : photo[FLICKR_PHOTO_ID],
                                  FLICKR_PHOTO_OWNER : photo[FLICKR_PHOTO_OWNER],
                                  @"url" : [[FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge] absoluteString],
-                                 @"description" : photo[@"description"]}];
+                                 @"description" : photo[@"description"][@"_content"]}];
 
     NSMutableArray *recents = [[RecentInfo getRecentPhotos] mutableCopy];
     for (NSDictionary *photo in recents) {

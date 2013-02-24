@@ -38,9 +38,6 @@
             {
                 if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)])
                 {
-                    /*NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
-                    */
-                    
                     TagInfo *tagInfo = self.tags[indexPath.row];
                 
                     NSArray *photoList = [self fetchPhotosForTag:tagInfo];
@@ -58,7 +55,6 @@
     NSMutableArray *result = [[NSMutableArray alloc]init];
     
     // loop on all the photos and return all the photos that exist in the list:
-    //NSArray *photoIDs = tagInfo.photoIDs;
     NSString *tag = tagInfo.tag;
     for (NSDictionary *photoInfo in self.allPhotos)
     {
@@ -166,9 +162,7 @@
     TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
     if (tagInfo)
     {
-        // TODO: Need to uppercase the first character
         NSArray *photoIDs = tagInfo.photoIDs;
-        NSLog(@"IDs: %@", photoIDs);
         return [NSString stringWithFormat:@"%d", [tagInfo.photoIDs count]];
     }
     return @"?";

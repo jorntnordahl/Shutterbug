@@ -39,12 +39,6 @@
     }
 }
 
-/*- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	//self.recentPhotos = [[RecentInfo class] getRecentPhotos];
-}*/
-
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -70,7 +64,7 @@
 
 -(NSString *) subtitleForRow:(NSUInteger) row
 {
-    return [self.recentPhotos[row][FLICKR_PHOTO_OWNER] description];
+    return [self.recentPhotos[row][@"description"] description];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
