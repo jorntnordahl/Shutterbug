@@ -18,13 +18,18 @@
 
 @implementation StanfordTagFlickrTVC
 
--(NSArray *)tags
+/*-(NSArray *)tags
 {
     if (!_tags)
     {
         _tags = [self processPhotosTags];
     }
     return _tags;
+}*/
+
+-(void) setTags:(NSArray *)tags
+{
+    _tags = tags;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -92,12 +97,11 @@
     dispatch_queue_t downloadQueue = dispatch_queue_create("stanford downloader", NULL);
     dispatch_async(downloadQueue, ^{
         
-        NSArray *stanfordPhotos = [FlickrFetcher stanfordPhotos];
+        //NSArray *stanfordPhotos = [FlickrFetcher stanfordPhotos];
         self.allPhotos = [FlickrFetcher stanfordPhotos];
+        self.tags = [self processPhotosTags];
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            self.allPhotos = stanfordPhotos;
-            self.tags = nil;
             [self.tableView reloadData];
             
             [self.refreshControl endRefreshing];
@@ -105,6 +109,11 @@
     });
 
     
+}
+
+-(NSArray *) hiddenTags
+{
+    return @[@"cs193pspot", @"portrait", @"landscape"];
 }
 
 -(NSArray *) processPhotosTags
@@ -122,6 +131,12 @@
             
             for (NSString *tag in tagList)
             {
+                if ([[self hiddenTags] containsObject:tag])
+                {
+                    // this is a tag we should hide per the homework
+                    continue;
+                }
+                
                 if ([photoTags objectForKey:tag] == nil)
                 {
                     TagInfo *tagInfo = [[TagInfo alloc] init];
@@ -196,7 +211,7 @@
     TagInfo *tagInfo = (TagInfo *)[self.tags objectAtIndex:row];
     if (tagInfo)
     {
-        return [NSString stringWithFormat:@"%d photos", [tagInfo.photoIDs count]];
+        return [NSString stringWithFormat:@"%d photo%@", [tagInfo.photoIDs count], ([tagInfo.photoIDs count] == 1 ? @"": @"s")];
     }
     return @"?";
 }
