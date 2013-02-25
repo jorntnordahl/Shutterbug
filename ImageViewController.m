@@ -44,6 +44,8 @@
                     self.scrollView.contentSize = image.size;
                     self.imageView.image = image;
                     self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+                    
+                    [self resetScroll];
                 }
             });
         });
@@ -78,8 +80,11 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-    
+}
+
+-(void) resetScroll
+{
+
     //We need to find the lesser minimum that still shows the whole picture
     float heightZoomMin = self.scrollView.bounds.size.height / self.imageView.image.size.height;
     float widthZoomMin  = self.scrollView.bounds.size.width  / self.imageView.image.size.width;

@@ -78,11 +78,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.allPhotos = [FlickrFetcher stanfordPhotos];
+    dispatch_queue_t downloadQueue = dispatch_queue_create("stanford downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        
+        NSArray *stanfordPhotos = [FlickrFetcher stanfordPhotos];
+        self.allPhotos = [FlickrFetcher stanfordPhotos];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.allPhotos = stanfordPhotos;
+            self.tags = nil;
+            [self.tableView reloadData];
+        });
+    });
+
+    
 }
-
-
-
 
 -(NSArray *) processPhotosTags
 {
