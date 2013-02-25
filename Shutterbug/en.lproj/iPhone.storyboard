@@ -180,6 +180,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Stanford Photos" id="gQT-sc-rBM"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="GUS-cz-6VS">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshTablePulled:" destination="BXe-wi-r3X" eventType="valueChanged" id="OUp-Q3-u8i"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yks-pE-Lt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,6 +252,9 @@
         <class className="StanfordTagFlickrTVC" superclassName="FlickrPhotoTVC">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordTagFlickrTVC.h"/>
         </class>
+        <class className="UIRefreshControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -253,6 +262,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="20H-7V-9ky"/>
+        <segue reference="nou-ip-vhs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -78,6 +78,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshTablePulled)
+                  forControlEvents:UIControlEventValueChanged];
+    [self fetchImages];
+}
+
+-(void) fetchImages
+{
+    [self.refreshControl beginRefreshing];
+    
     dispatch_queue_t downloadQueue = dispatch_queue_create("stanford downloader", NULL);
     dispatch_async(downloadQueue, ^{
         
@@ -88,6 +99,8 @@
             self.allPhotos = stanfordPhotos;
             self.tags = nil;
             [self.tableView reloadData];
+            
+            [self.refreshControl endRefreshing];
         });
     });
 
@@ -188,5 +201,9 @@
     return @"?";
 }
 
+- (void)refreshTablePulled
+{
+    [self fetchImages];
+}
 
 @end

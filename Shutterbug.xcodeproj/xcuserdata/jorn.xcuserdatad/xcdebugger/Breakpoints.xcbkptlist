@@ -69,15 +69,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383444624.379984"
+         timestampString = "383446305.329679"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,38 +86,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383444629.383744"
+         timestampString = "383446305.329679"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
+         landmarkName = "-fetchImages"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383444631.211795"
+         timestampString = "383446305.329679"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
+         landmarkName = "-fetchImages"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383444912.828748"
+         timestampString = "383446305.329679"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "-fetchImages"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -170,6 +170,19 @@
          startingLineNumber = "61"
          endingLineNumber = "61"
          landmarkName = "-tableView:numberOfRowsInSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Shutterbug/StanfordTagFlickrTVC.m"
+         timestampString = "383446305.329679"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "206"
+         endingLineNumber = "206"
+         landmarkName = "-refreshTablePulled"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
