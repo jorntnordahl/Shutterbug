@@ -85,17 +85,18 @@
 -(void) fetchImages
 {
     [self.refreshControl beginRefreshing];
-   
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("stanford downloader", NULL);
     dispatch_async(downloadQueue, ^{
         
         [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:YES];
-        self.allPhotos = [FlickrFetcher stanfordPhotos];
+        NSArray *latestPhotos = [FlickrFetcher stanfordPhotos];
         [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:NO];
         
-        self.tags = [self processPhotosTags];
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.allPhotos = latestPhotos;
+            self.tags = [self processPhotosTags];
             
             [self.tableView reloadData];
             
