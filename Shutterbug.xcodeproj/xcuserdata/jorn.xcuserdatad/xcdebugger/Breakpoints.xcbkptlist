@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383499096.679897"
+         timestampString = "383759315.16731"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "91"
-         endingLineNumber = "91"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383499096.679897"
+         timestampString = "383759315.16731"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "92"
+         endingLineNumber = "92"
          landmarkName = "-fetchImages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383499096.679897"
+         timestampString = "383759315.16731"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-fetchImages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Shutterbug/StanfordTagFlickrTVC.m"
-         timestampString = "383499292.148984"
+         timestampString = "383759465.281434"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "221"
-         endingLineNumber = "221"
+         startingLineNumber = "216"
+         endingLineNumber = "216"
          landmarkName = "-refreshTablePulled"
          landmarkType = "5">
       </FileBreakpoint>

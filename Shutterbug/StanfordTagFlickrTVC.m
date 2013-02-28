@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 #import "TagInfo.h"
 #import "PhotoInfo.h"
+#import "SpotUtil.h"
 
 
 @interface StanfordTagFlickrTVC ()
@@ -17,15 +18,6 @@
 @end
 
 @implementation StanfordTagFlickrTVC
-
-/*-(NSArray *)tags
-{
-    if (!_tags)
-    {
-        _tags = [self processPhotosTags];
-    }
-    return _tags;
-}*/
 
 -(void) setTags:(NSArray *)tags
 {
@@ -93,12 +85,15 @@
 -(void) fetchImages
 {
     [self.refreshControl beginRefreshing];
+   
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("stanford downloader", NULL);
     dispatch_async(downloadQueue, ^{
         
-        //NSArray *stanfordPhotos = [FlickrFetcher stanfordPhotos];
+        [[SpotUtil class] setNetworkActivityIndicatorVisible:YES];
         self.allPhotos = [FlickrFetcher stanfordPhotos];
+        [[SpotUtil class] setNetworkActivityIndicatorVisible:NO];
+        
         self.tags = [self processPhotosTags];
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -220,5 +215,21 @@
 {
     [self fetchImages];
 }
+
+/*- (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible {
+    static NSInteger NumberOfCallsToSetVisible = 0;
+    if (setVisible)
+        NumberOfCallsToSetVisible++;
+    else
+        NumberOfCallsToSetVisible--;
+    
+    // The assertion helps to find programmer errors in activity indicator management.
+    // Since a negative NumberOfCallsToSetVisible is not a fatal error,
+    // it should probably be removed from production code.
+    NSAssert(NumberOfCallsToSetVisible >= 0, @"Network Activity Indicator was asked to hide more often than shown");
+    
+    // Display the indicator as long as our static counter is > 0.
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(NumberOfCallsToSetVisible > 0)];
+}*/
 
 @end

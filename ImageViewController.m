@@ -8,6 +8,7 @@
 
 
 #import "ImageViewController.h"
+#import "SpotUtil.h"
 
 
 @interface ImageViewController () <UIScrollViewDelegate>
@@ -48,7 +49,11 @@
         
         dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
         dispatch_async(downloadQueue, ^{
+            
+            [[SpotUtil class] setNetworkActivityIndicatorVisible:YES];
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+            [[SpotUtil class] setNetworkActivityIndicatorVisible:NO];
+            
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (image){
