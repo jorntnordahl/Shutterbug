@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A1FCC4216DFB2FA00DCFF5A /* SpotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FCC4116DFB2F900DCFF5A /* SpotUtil.m */; };
+		0A1FCC4216DFB2FA00DCFF5A /* NetworkActivityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FCC4116DFB2F900DCFF5A /* NetworkActivityUtil.m */; };
 		0A23C2F216DACAA30043CEEE /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A23C2F116DACAA30043CEEE /* iPad.storyboard */; };
 		0A27895B16D7182C00C83191 /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A27895A16D7182C00C83191 /* FlickrPhotoTVC.m */; };
 		0A27896016D71ACD00C83191 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A27895F16D71ACD00C83191 /* FlickrFetcher.m */; };
@@ -33,8 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A1FCC4016DFB2F900DCFF5A /* SpotUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotUtil.h; sourceTree = "<group>"; };
-		0A1FCC4116DFB2F900DCFF5A /* SpotUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotUtil.m; sourceTree = "<group>"; };
+		0A1FCC4016DFB2F900DCFF5A /* NetworkActivityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivityUtil.h; sourceTree = "<group>"; };
+		0A1FCC4116DFB2F900DCFF5A /* NetworkActivityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivityUtil.m; sourceTree = "<group>"; };
 		0A23C2F116DACAA30043CEEE /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = ../iPad.storyboard; sourceTree = "<group>"; };
 		0A27895916D7182C00C83191 /* FlickrPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoTVC.h; sourceTree = "<group>"; };
 		0A27895A16D7182C00C83191 /* FlickrPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoTVC.m; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 		0A1FCC4316DFB2FE00DCFF5A /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				0A1FCC4016DFB2F900DCFF5A /* SpotUtil.h */,
-				0A1FCC4116DFB2F900DCFF5A /* SpotUtil.m */,
+				0A1FCC4016DFB2F900DCFF5A /* NetworkActivityUtil.h */,
+				0A1FCC4116DFB2F900DCFF5A /* NetworkActivityUtil.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 				0A32616D16D86F7C00D0C7A2 /* TagInfo.m in Sources */,
 				0AFD691016D9948B008B76E5 /* RecentInfo.m in Sources */,
 				0AFD691316D996AA008B76E5 /* RecentImageFlickrTVC.m in Sources */,
-				0A1FCC4216DFB2FA00DCFF5A /* SpotUtil.m in Sources */,
+				0A1FCC4216DFB2FA00DCFF5A /* NetworkActivityUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

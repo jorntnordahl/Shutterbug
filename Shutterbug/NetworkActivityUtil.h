@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SpotUtil : NSObject
+@interface NetworkActivityUtil : NSObject
 
 + (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible;
 

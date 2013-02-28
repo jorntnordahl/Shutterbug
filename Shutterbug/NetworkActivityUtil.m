@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Jorn Nordahl. All rights reserved.
 //
 
-#import "SpotUtil.h"
+#import "NetworkActivityUtil.h"
 
-@implementation SpotUtil
+@implementation NetworkActivityUtil
 
 + (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible {
     static NSInteger NumberOfCallsToSetVisible = 0;

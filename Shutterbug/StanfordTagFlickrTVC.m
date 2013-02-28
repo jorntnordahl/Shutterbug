@@ -10,7 +10,7 @@
 #import "FlickrFetcher.h"
 #import "TagInfo.h"
 #import "PhotoInfo.h"
-#import "SpotUtil.h"
+#import "NetworkActivityUtil.h"
 
 
 @interface StanfordTagFlickrTVC ()
@@ -90,9 +90,9 @@
     dispatch_queue_t downloadQueue = dispatch_queue_create("stanford downloader", NULL);
     dispatch_async(downloadQueue, ^{
         
-        [[SpotUtil class] setNetworkActivityIndicatorVisible:YES];
+        [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:YES];
         self.allPhotos = [FlickrFetcher stanfordPhotos];
-        [[SpotUtil class] setNetworkActivityIndicatorVisible:NO];
+        [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:NO];
         
         self.tags = [self processPhotosTags];
         dispatch_async(dispatch_get_main_queue(), ^{
