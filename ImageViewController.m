@@ -9,6 +9,7 @@
 
 #import "ImageViewController.h"
 #import "NetworkActivityUtil.h"
+#import "FileCache.h"
 
 
 @interface ImageViewController () <UIScrollViewDelegate>
@@ -29,13 +30,25 @@
     [self resetImage];
 }
 
+-(NSString *) fileNameFromURL
+{
+    if (self.imageURL)
+    {
+        // what if two images exist on two different servers with the same name?
+        // maybe we should use the image id here instead...
+        NSString *filename = [[self.imageURL path] lastPathComponent];
+        NSLog(@"Reduced URL: %@", filename);
+        return filename;
+    }
+    return @"?";
+}
+
 
 -(void)resetImage
 {
     if (self.scrollView) {
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
-        
         
         // replace right bar button 'refresh' with spinner
         UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -45,14 +58,28 @@
         [self.view addSubview:spinner];
         [spinner startAnimating];
 
-        
-        
         dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
         dispatch_async(downloadQueue, ^{
             
-            [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:YES];
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
-            [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:NO];
+            // check and see if the cache has the file:
+            NSData *imageData;
+            
+            NSString *name = [self fileNameFromURL];
+            NSString *dir = @"STANFORD";
+            if ([[FileCache class] isFileInCache:name atDirectory:dir])
+            {
+                imageData = [[FileCache class] getFileFromCache:name atDirectory:dir];
+            }
+            else
+            {
+                [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:YES];
+                imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+                [[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:NO];
+                
+                // add file to cache:
+                BOOL fileStored = [[FileCache class] storeFile:imageData withName:name atDirectory:dir];
+                NSLog(@"Is file stored in cache now? %d", fileStored);
+            }
             
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             dispatch_async(dispatch_get_main_queue(), ^{
