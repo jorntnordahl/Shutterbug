@@ -16,6 +16,7 @@
 		0A32616D16D86F7C00D0C7A2 /* TagInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32616C16D86F7C00D0C7A2 /* TagInfo.m */; };
 		0A92B74116D7C56600D5E914 /* StanfordImageFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B74016D7C56600D5E914 /* StanfordImageFlickrTVC.m */; };
 		0A92B74416D7CBA700D5E914 /* StanfordTagFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B74316D7CBA700D5E914 /* StanfordTagFlickrTVC.m */; };
+		0A93D34E16E2C30D0051454A /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A93D34D16E2C30D0051454A /* FileCache.m */; };
 		0AD3009D16D683EA0006535E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD3009C16D683EA0006535E /* UIKit.framework */; };
 		0AD3009F16D683EA0006535E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD3009E16D683EA0006535E /* Foundation.framework */; };
 		0AD300A116D683EA0006535E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD300A016D683EA0006535E /* CoreGraphics.framework */; };
@@ -51,6 +52,8 @@
 		0A92B74016D7C56600D5E914 /* StanfordImageFlickrTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordImageFlickrTVC.m; sourceTree = "<group>"; };
 		0A92B74216D7CBA700D5E914 /* StanfordTagFlickrTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordTagFlickrTVC.h; sourceTree = "<group>"; };
 		0A92B74316D7CBA700D5E914 /* StanfordTagFlickrTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordTagFlickrTVC.m; sourceTree = "<group>"; };
+		0A93D34C16E2C30D0051454A /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
+		0A93D34D16E2C30D0051454A /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
 		0AD3009916D683EA0006535E /* Shutterbug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shutterbug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD3009C16D683EA0006535E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0AD3009E16D683EA0006535E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,6 +95,8 @@
 		0A1FCC4316DFB2FE00DCFF5A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0A93D34C16E2C30D0051454A /* FileCache.h */,
+				0A93D34D16E2C30D0051454A /* FileCache.m */,
 				0A1FCC4016DFB2F900DCFF5A /* NetworkActivityUtil.h */,
 				0A1FCC4116DFB2F900DCFF5A /* NetworkActivityUtil.m */,
 			);
@@ -281,6 +286,7 @@
 				0AFD691016D9948B008B76E5 /* RecentInfo.m in Sources */,
 				0AFD691316D996AA008B76E5 /* RecentImageFlickrTVC.m in Sources */,
 				0A1FCC4216DFB2FA00DCFF5A /* NetworkActivityUtil.m in Sources */,
+				0A93D34E16E2C30D0051454A /* FileCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
