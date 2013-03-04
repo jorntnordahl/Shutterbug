@@ -12,7 +12,8 @@
 
 
 +(BOOL)storeFile:(NSData*)file withName:(NSString*)name atDirectory:(NSString*)dir;
-+(BOOL) deleteFileFromCache:(NSData *) file atDirector:(NSString *) dir;
++(BOOL) deleteFileFromCache:(NSString *) file;
++(BOOL) deleteFileFromCache:(NSString *) file atDirectory:(NSString *) dir;
 +(BOOL) isFileInCache:(NSString *) file atDirectory:(NSString *) dir;
 +(NSData *) getFileFromCache:(NSString *) name atDirectory:(NSString *) dir;
 
