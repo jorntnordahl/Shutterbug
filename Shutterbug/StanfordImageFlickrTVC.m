@@ -28,8 +28,20 @@
     // Configure the cell...
     cell.textLabel.text = [self titleForRow:indexPath.row];
     cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
-    
+    cell.imageView.image = [self thumbNailForRow:indexPath.row];
     return cell;
+}
+
+-(UIImage *) thumbNailForRow:(NSUInteger) row
+{
+    NSURL *url = [FlickrFetcher urlForPhoto:self.photos[row] format:FlickrPhotoFormatSquare];
+    
+    //[[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:YES];
+    NSData *imageData = [[NSData alloc] initWithContentsOfURL:url];
+    //[[NetworkActivityUtil class] setNetworkActivityIndicatorVisible:NO];
+    
+    UIImage *image = [[UIImage alloc] initWithData:imageData];    
+    return image;
 }
 
 -(NSString *) titleForRow:(NSUInteger) row

@@ -17,6 +17,7 @@
 		0A92B74116D7C56600D5E914 /* StanfordImageFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B74016D7C56600D5E914 /* StanfordImageFlickrTVC.m */; };
 		0A92B74416D7CBA700D5E914 /* StanfordTagFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B74316D7CBA700D5E914 /* StanfordTagFlickrTVC.m */; };
 		0A93D34E16E2C30D0051454A /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A93D34D16E2C30D0051454A /* FileCache.m */; };
+		0AC581FC16F218560050E5D9 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC581FB16F218560050E5D9 /* twitter.png */; };
 		0AD3009D16D683EA0006535E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD3009C16D683EA0006535E /* UIKit.framework */; };
 		0AD3009F16D683EA0006535E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD3009E16D683EA0006535E /* Foundation.framework */; };
 		0AD300A116D683EA0006535E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD300A016D683EA0006535E /* CoreGraphics.framework */; };
@@ -54,6 +55,7 @@
 		0A92B74316D7CBA700D5E914 /* StanfordTagFlickrTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordTagFlickrTVC.m; sourceTree = "<group>"; };
 		0A93D34C16E2C30D0051454A /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
 		0A93D34D16E2C30D0051454A /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
+		0AC581FB16F218560050E5D9 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		0AD3009916D683EA0006535E /* Shutterbug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shutterbug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD3009C16D683EA0006535E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0AD3009E16D683EA0006535E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,6 +138,22 @@
 			name = NotUsed;
 			sourceTree = "<group>";
 		};
+		0AC581F916F218250050E5D9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AC581FA16F2182D0050E5D9 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0AC581FA16F2182D0050E5D9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0AC581FB16F218560050E5D9 /* twitter.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		0AD3009016D683EA0006535E = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +184,7 @@
 		0AD300A216D683EA0006535E /* Shutterbug */ = {
 			isa = PBXGroup;
 			children = (
+				0AC581F916F218250050E5D9 /* Resources */,
 				0A1FCC4316DFB2FE00DCFF5A /* Util */,
 				0A32616716D86A8E00D0C7A2 /* Model */,
 				0A27895C16D71ACD00C83191 /* FlickrFetcher */,
@@ -262,6 +281,7 @@
 				0AD300B316D683EA0006535E /* Default-568h@2x.png in Resources */,
 				0AD300B616D683EA0006535E /* iPhone.storyboard in Resources */,
 				0A23C2F216DACAA30043CEEE /* iPad.storyboard in Resources */,
+				0AC581FC16F218560050E5D9 /* twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
