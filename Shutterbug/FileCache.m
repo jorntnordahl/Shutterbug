@@ -10,7 +10,7 @@
 
 @implementation FileCache
 
-#define MAX_CACHE_SIZE 25
+#define MAX_CACHE_SIZE 5
     
 +(NSString *)applicationDocumentsDirectory {
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
@@ -47,7 +47,6 @@
     }
     
     [self purgeOldFiles:dir];
-    
     
     return NO;
 }
@@ -90,13 +89,6 @@
     }
 }
 
-/*NSInteger lastModifiedSort(id path1, id path2, void* context)
-{
-    int comp = [[path1 objectForKey:@"lastModDate"] compare:
-                [path2 objectForKey:@"lastModDate"]];
-    return comp;
-}*/
-
 +(NSArray *)filesByModDate:(NSString*) path{
     
     NSError* error = nil;
@@ -127,7 +119,6 @@
                 NSLog(@"%@",[error description]);
             }
         }
-        //NSArray* sortedFiles = [filesAndProperties sortedArrayUsingFunction:&lastModifiedSort context:nil];
         
         NSArray *sortedFiles;
         sortedFiles = [filesAndProperties sortedArrayUsingComparator:^NSComparisonResult(id path1, id path2) {
@@ -135,11 +126,6 @@
             int comp = [[path1 objectForKey:@"lastModDate"] compare:
                         [path2 objectForKey:@"lastModDate"]];
             return comp;
-            
-            
-            //NSDate *first = [(Person*)a birthDate];
-            //NSDate *second = [(Person*)b birthDate];
-            //return [first compare:second];
         }];
         
         NSLog(@"sortedFiles: %@", sortedFiles);
@@ -169,6 +155,9 @@
 
 +(BOOL) isFileInCache:(NSString *) name atDirectory:(NSString *) dir
 {
+    // purge old files first:
+    [self purgeOldFiles:dir];
+    
     NSString *docsDir = [FileCache applicationDocumentsDirectory];
     NSString* fileName = [[docsDir stringByAppendingPathComponent:dir]stringByAppendingPathComponent:name];
     return [[NSFileManager defaultManager] fileExistsAtPath:fileName];

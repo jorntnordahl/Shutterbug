@@ -36,6 +36,12 @@
         UIGraphicsEndImageContext();
         cell.imageView.image = blank;
         
+        // show spinner:
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        spinner.frame = CGRectMake(0, 0, 24, 24);
+        cell.accessoryView = spinner;
+        [spinner startAnimating];
+        
         [self thumbNailForRow:indexPath forCell:cell];
     }
     return cell;
