@@ -7,6 +7,8 @@
 //
 
 #import "FlickrPhotoTVC.h"
+#import <UIKit/UIKit.h>
+#import "NetworkActivityUtil.h"
 
 @interface StanfordImageFlickrTVC : FlickrPhotoTVC
 
