@@ -10,8 +10,8 @@
 
 @implementation FileCache
 
-#define MAX_CACHE_SIZE 5
-
+#define MAX_CACHE_SIZE 25
+    
 +(NSString *)applicationDocumentsDirectory {
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
